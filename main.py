@@ -46,5 +46,4 @@ if __name__ == '__main__':
     registros_pd = df[(df['title'] >= 'Death Note') & (df['title'] <= 'Samurai Champloo')]
     fim = time.time()
     print(f'Registros encontrados! Levou{fim - inicio: .3f} segundos para encontrar usando pandas.')
-
     input('Aperte enter para encerrar.')

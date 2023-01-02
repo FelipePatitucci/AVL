@@ -91,7 +91,21 @@ class AVLTree:
 			linha = int(node.linha)
 			for line in islice(lines, linha, linha+1):
 				return line
-		
+	
+	def __pegaFilhos(self, left: Any, right: Any) -> List:
+		start = self.raiz
+		lista = []
+		def __recursiveFilhos(node: Node) -> None:
+			if left <= node.dado <= right:
+				lista.append(node.linha)
+			if node.dado > left and node.esquerda != None:
+				__recursiveFilhos(node.esquerda)
+			if node.dado < right and node.direita != None:
+				__recursiveFilhos(node.direita)
+		__recursiveFilhos(start)
+		return lista
+
+
 	# Percorre a árvore na ordem
 	# subarvore esquerda -> Node -> subarvore direita
 	def emOrdem(self) -> None:
@@ -105,7 +119,8 @@ class AVLTree:
 			return
 		return self.__pegaRegistro(file_name=file_name, node=node)
 
-	def procuraIntervaloChaves(self, chave_inicial: Union[str, int], chave_final: Union[str, int], file_name: str) -> List[str]:
+	# procura todos os registros entre duas chaves
+	def procuraIntervaloChaves(self, chave_inicial: Union[str, int], chave_final: Union[str, int],file_name: str) -> List[str]:
 
 		node_inicial = self.__buscaAuxiliar(self.raiz, chave_inicial)
 		node_final = self.__buscaAuxiliar(self.raiz, chave_final)
@@ -113,20 +128,14 @@ class AVLTree:
 		if isinstance(node_final, type(None)) or isinstance(node_inicial, type(None)):
 			print('Uma das chaves informadas não existe na base.')
 			return []
-		# pode ser que o usuário deliberadamente digite na ordem invertida
-		if node_inicial.dado > node_final.dado:
-			node_inicial, node_final = node_final, node_inicial
 
 		registros = []
-		# adicionar o registro da primeira chave
-		registros.append(self.__pegaRegistro(file_name=file_name, node=node_inicial))
-
-		node_atual = node_inicial
-		# adicionar todos os outros registros no intervalo das chaves
-		while node_atual.dado != node_final.dado:
-			prox_node = self.successor(node_atual)
-			registros.append(self.__pegaRegistro(file_name=file_name, node=prox_node))
-			node_atual = prox_node
+		filhos = self.__pegaFilhos(node_inicial.dado, node_final.dado)
+		arq = open(f'{file_name}', encoding='utf-8')
+		texto = arq.read().split("\n")
+		arq.close()
+		for linha in filhos:
+			registros.append(texto[linha])
 
 		print(f'{len(registros)} registros foram encontrados entre {chave_inicial} e {chave_final}.')
 		return registros
