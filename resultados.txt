@@ -1,0 +1,23 @@
+"""
+Integrantes:
+Felipe Patitucci - 120022269
+Igor Torres - 119034669
+Matheus Moreira do Nascimento - 119042060
+Pedro Wong - 120076810
+Ruan Felipe da Silva e Sousa - 119041454
+"""
+
+Nos testes realizados, a criação do índice da AVL baseado na chave primária 'title' (nome principal)
+levou cerca de 0.025 segundos.
+
+Teste 1 : Utilizar o índice primário para realizar a recuperação de um registro dado a sua chave primária
+leva em torno de 0.01 segundos. Fazendo a mesma consulta com o pandas, leva em torno de 0.001 segundos,
+em média 10x mais rápido.
+
+Teste 2: Dado um intervalo de chaves, recuperar todos os registros cujas chaves primárias
+pertencem ao intervalo dado leva em torno de 0.02, enquanto que com o pandas leva
+em torno de 0.002 segundos.
+
+Realmente tentamos fazer com a base de dados maior 'tweets', mas demorou muito
+para gerar o índice (chaves primárias grandes e muitas linhas) e o computador
+começou a travar, portanto não conseguimos testar adequadamente.
