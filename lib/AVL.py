@@ -169,6 +169,9 @@ class AVLTree:
 	def percorrer_AVL(self) -> None:
 		self.__percorrer_auxiliar(self.raiz)
 
+	def procura_node(self, chave:Union[str, int]) -> Node:
+		return self.__busca_auxiliar(self.raiz, chave)
+ 
 	# procura pela chave e retorna o registro
 	def procura_chave(self, chave: Union[str, int], file_name: str) -> str:
 		node = self.__busca_auxiliar(self.raiz, chave)
@@ -192,7 +195,10 @@ class AVLTree:
 		texto = arq.read().split("\n")
 		arq.close()
 		for linha in filhos:
-			registros.append(texto[linha])
+			try:
+				registros.append(texto[linha])
+			except TypeError:
+				print(f'O registro de linha {linha} provavelmente foi inserido manualmente e por isso não existe no registro.')
 
 		print(f'{len(registros)} registros foram encontrados entre {chave_inicial} e {chave_final}.')
 		return registros

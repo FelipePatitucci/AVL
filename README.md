@@ -57,6 +57,7 @@ AVLTree: Esse é o objeto que representa a árvore em si.
   - \_\_pega_registro: Função interna para encontrar um registro no arquivo dado um Node
   - \_\_pega_linhas: Função interna recursiva para pegar todas os Nodes da AVL que estão entre duas chaves específicas (retorna uma lista com a linha de referência no arquivo para cada Node)
   - percorrer_AVL: Função que printa todas as chaves da AVL percorrendo-a da menor para a maior
+  - procura_node: Função que retorna um Node dada uma chave
   - procura_chave: Função que procura um registro no arquivo dada sua chave da AVL
   - procura_intervalo_chaves: Função que pega todos os registros que possuem chave primária entre dois valores
   - sucessor: Função que retorna o Node sucessor dado um Node
