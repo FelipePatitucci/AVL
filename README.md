@@ -7,17 +7,6 @@ Membros do grupo
 - Felipe Patitucci
   $\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:$
   DRE: 120022269
-- Igor Torres
-  $\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:$
-  DRE: 119034669
-- Matheus Moreira do Nascimento
-  $\:\:\:$
-  DRE: 119042060
-- Pedro Wong
-  $\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:$
-  DRE: 120076810
-- Ruan Felipe da Silva e Sousa $\:\:\:\:\:\:\:\:\:\:\:$
-  DRE: 119041454
 
 O programa implementa uma AVL em Python utilizando programação orientada a objeto.
 Ela é populada a partir de uma base de dados que pode ser passada como parâmetro pelo usuário.
